@@ -90,6 +90,12 @@ try {
     out(['ok' => false, 'error' => 'Lookup failed'], 502);
 }
 
+// ডিবাগ: Render > Environment এ DEBUG_KEY সেট করে ?debug=সেই_কী দিয়ে খুলুন
+$debugKey = getenv('DEBUG_KEY');
+if ($debugKey && hash_equals($debugKey, (string)($_GET['debug'] ?? ''))) {
+    out(['debug' => $result]);
+}
+
 if (!empty($result['ok']) && !empty($result['nickname'])) {
     file_put_contents($cacheFile, json_encode(['nickname' => $result['nickname']], JSON_UNESCAPED_UNICODE));
     out(['ok' => true, 'nickname' => $result['nickname'], 'cached' => false]);
