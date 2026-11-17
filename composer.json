@@ -1,0 +1,11 @@
+{
+  "name": "yes/ff-name-check",
+  "description": "Free Fire UID to nickname checker endpoint",
+  "require": {
+    "php": "^8.1",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-openssl": "*",
+    "refatbd/game-account-lookup": "^1.0"
+  }
+}
